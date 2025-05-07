@@ -220,7 +220,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AhmdKmal.cs" />
     <Compile Include="Controllers\AttTableController.cs" />
-    <Compile Include="Controllers\ChangeLogController.cs" />
     <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\DBContext.cs" />
     <Compile Include="Controllers\db\additionDB.cs" />
@@ -1194,7 +1193,6 @@
     <Content Include="Views\Request\Index.cshtml" />
     <Content Include="Views\Home\license.cshtml" />
     <Content Include="Views\CRUD\Index.cshtml" />
-    <Content Include="Views\aa\Edit.cshtml" />
     <Content Include="Views\Reports\CutsReport.cshtml" />
     <Content Include="Views\Reports\paymentsDept.cshtml" />
     <Content Include="Views\CRUD\simplest.cshtml" />
@@ -1229,6 +1227,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Hubs\" />
     <Folder Include="Uploads\" />
+    <Folder Include="Views\aa\" />
     <Folder Include="Views\MySql\" />
     <Folder Include="Views\Send\" />
     <Folder Include="Views\Setting\" />
