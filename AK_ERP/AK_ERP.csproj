@@ -213,50 +213,21 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AhmdKmal.cs" />
-    <Compile Include="Controllers\AttTableController.cs" />
     <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\DBContext.cs" />
-    <Compile Include="Controllers\db\additionDB.cs" />
-    <Compile Include="Controllers\db\Report.cs" />
-    <Compile Include="Controllers\db\TempShiftDB.cs" />
-    <Compile Include="Controllers\DeferredVacationsController.cs" />
     <Compile Include="Controllers\DelayController.cs" />
-    <Compile Include="Controllers\Enums\ClearFlag.cs" />
     <Compile Include="Controllers\ExcelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Info\DeviceTimeInfo.cs" />
-    <Compile Include="Controllers\Info\MachineInfo.cs" />
-    <Compile Include="Controllers\Info\UserIDInfo.cs" />
-    <Compile Include="Controllers\Info\UserInfo.cs" />
-    <Compile Include="Controllers\LeaveController.cs" />
-    <Compile Include="Controllers\MacController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MasterDataController.cs" />
-    <Compile Include="Controllers\moduleController.cs" />
     <Compile Include="Controllers\mySql\MySqlController.cs" />
-    <Compile Include="Controllers\NotiController.cs" />
-    <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\PostingPeriodController.cs" />
-    <Compile Include="Controllers\ReportsController.cs" />
-    <Compile Include="Controllers\RequestController.cs" />
-    <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Controllers\SendController.cs" />
     <Compile Include="Controllers\settings\DepartementsController.cs" />
     <Compile Include="Controllers\settings\JobTitlesController.cs" />
     <Compile Include="Controllers\SQLController.cs" />
     <Compile Include="Controllers\SSEController.cs" />
     <Compile Include="Controllers\static_class.cs" />
-    <Compile Include="Controllers\TempShiftController.cs" />
-    <Compile Include="Controllers\TruantController.cs" />
-    <Compile Include="Controllers\Utilities\DeviceManipulator.cs" />
-    <Compile Include="Controllers\Utilities\UniversalStatic.cs" />
-    <Compile Include="Controllers\Utilities\ZkemClient.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -269,7 +240,6 @@
     <Compile Include="Models\Accessibility.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AClog.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
@@ -321,7 +291,6 @@
     <Compile Include="Models\Attachment.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Attend.cs" />
     <Compile Include="Models\Attendance.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
@@ -358,7 +327,6 @@
     <Compile Include="Models\Class.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Company.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
@@ -461,7 +429,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HRModels.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Incentive.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
@@ -495,7 +462,6 @@
     <Compile Include="Models\Location.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MedicalCover.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
@@ -656,7 +622,6 @@
     <Compile Include="Models\Transfer.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\truant.cs" />
     <Compile Include="Models\TypeEmployee.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
@@ -675,7 +640,6 @@
     <Compile Include="Models\Vacation.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\VacationsModel.cs" />
     <Compile Include="Models\WageCode.cs">
       <DependentUpon>HRModels.tt</DependentUpon>
     </Compile>
@@ -1225,7 +1189,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Hubs\" />
     <Folder Include="Uploads\" />
     <Folder Include="Views\aa\" />
     <Folder Include="Views\MySql\" />
