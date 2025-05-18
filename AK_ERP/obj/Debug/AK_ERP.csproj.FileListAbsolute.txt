@@ -97,9 +97,6 @@ C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\roslyn\System.Reflection.Metadata.dl
 C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\roslyn\vbc.exe
 C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\roslyn\VBCSCompiler.exe
 C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\newHR.dll.config
-C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\newHR.dll
-C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\newHR.pdb
 C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\Antlr3.Runtime.dll
 C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\EntityFramework.dll
 C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\EntityFramework.SqlServer.dll
@@ -170,5 +167,8 @@ C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\hp\Documents\GitHub\ERP\AK_ERP\obj\Debug\AK_ERP.csprojResolveAssemblyReference.cache
-C:\Users\hp\Documents\GitHub\ERP\AK_ERP\obj\Debug\newHR.dll
-C:\Users\hp\Documents\GitHub\ERP\AK_ERP\obj\Debug\newHR.pdb
+C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\AK_HR.dll.config
+C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\AK_HR.dll
+C:\Users\hp\Documents\GitHub\ERP\AK_ERP\bin\AK_HR.pdb
+C:\Users\hp\Documents\GitHub\ERP\AK_ERP\obj\Debug\AK_HR.dll
+C:\Users\hp\Documents\GitHub\ERP\AK_ERP\obj\Debug\AK_HR.pdb
