@@ -10,7 +10,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using OfficeOpenXml;
 
-namespace newHR.Controllers
+namespace AK_HR.Controllers
 {
     public class ExcelController : Controller
     {

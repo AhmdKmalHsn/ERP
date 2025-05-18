@@ -1,4 +1,5 @@
 ﻿//using Microsoft.AspNet.SignalR.Messaging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace newHR.Controllers
+namespace AK_HR.Controllers
 {
     public class MasterDataController : Controller
     {
@@ -65,8 +66,8 @@ namespace newHR.Controllers
             return View();
         }
 
-        DBContext db = new DBContext();
-        public JsonResult GetEmployees()//AK
+        //DBContext db = new DBContext();
+        public ActionResult GetEmployees()//AK
         {
             #region query
             string sql = @"
@@ -156,13 +157,14 @@ select e.Id,
                       LEFT JOIN Locations l1 ON e.LocationId=l1.Id
 ";
             #endregion
-            SqlCommand com = new SqlCommand(sql);
-            com.CommandType = CommandType.Text;
-            return new JsonResult() {
-                Data = db.toJSON(db.getData(com)),
+                return Content(JsonConvert.SerializeObject(static_class.getbysql(sql), Formatting.Indented)); //db.toJSON(db.getData(com))
+
+            /*return new JsonResult() {
+                Data = JsonConvert.SerializeObject(static_class.getbysql(sql)) //db.toJSON(db.getData(com))
+                ,
                 JsonRequestBehavior =JsonRequestBehavior.AllowGet,
                 MaxJsonLength=Int32.MaxValue
-            };
+            };*/
             //return Json(db.toJSON(db.getData(com)), JsonRequestBehavior.AllowGet);
         }
     }

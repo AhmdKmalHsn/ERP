@@ -216,17 +216,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\CRUDController.cs" />
-    <Compile Include="Controllers\DBContext.cs" />
-    <Compile Include="Controllers\DelayController.cs" />
     <Compile Include="Controllers\ExcelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MasterDataController.cs" />
     <Compile Include="Controllers\mySql\MySqlController.cs" />
-    <Compile Include="Controllers\PostingPeriodController.cs" />
     <Compile Include="Controllers\settings\DepartementsController.cs" />
     <Compile Include="Controllers\settings\JobTitlesController.cs" />
-    <Compile Include="Controllers\SQLController.cs" />
-    <Compile Include="Controllers\SSEController.cs" />
     <Compile Include="Controllers\static_class.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

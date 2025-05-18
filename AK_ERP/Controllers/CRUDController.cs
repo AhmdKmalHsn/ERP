@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
-namespace newHR.Controllers
+namespace AK_HR.Controllers
 {
     public class CRUDController : Controller
     {
@@ -21,8 +21,8 @@ namespace newHR.Controllers
         {
             return View();
         }
-        /********************** helpers ****************************/
         
+        /********************** helpers ****************************/
         public DataSet ReadSql(string sql = "")
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CS"].ConnectionString);
@@ -83,11 +83,6 @@ namespace newHR.Controllers
             return Content(ReadSql(pageNo, pageSize, sql), "application/json; charset=utf-8");
         }
         /********************* api json **************************/
-        public ActionResult GetUsers(int pageNo = 0, int pageSize = 0)
-        {
-            string sql = "select * from users2";
-            return Content(ReadSql(pageNo, pageSize, sql), "application/json; charset=utf-8");
-        }
         public ActionResult GetSQL(string t="",string json="")
         {
              json = "{'a':'aaa','b':'bbb','c':'ccc'}";
@@ -114,6 +109,78 @@ namespace newHR.Controllers
                 rows.Add(row);
             }
             return serializer.Serialize(rows);
+        }
+        /*********************** db context **************/
+        public DataTable getData(string cmdText)
+        {
+
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CS"].ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(cmdText, con))
+                    {
+                        con.Open();
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ahmed kamal=" + ex.Message);
+                return null;
+            }
+            return dt;
+        }
+        public DataTable getData(SqlCommand cmd)
+        {
+
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CS"].ConnectionString))
+                {
+
+                    using (cmd)
+                    {
+                        cmd.Connection = con;
+                        con.Open();
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ahmed kamal=" + ex.Message);
+                return null;
+            }
+            return dt;
+        }
+        public string toJSON(DataTable table)
+        {
+            return JsonConvert.SerializeObject(table);
+        }
+        public int exec(SqlCommand com)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["CS"].ConnectionString;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+                    com.Connection = con;
+                    com.ExecuteNonQuery();
+                    return 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ahmed kamal=" + ex.Message);
+                return 0;
+            }
         }
     }
 }

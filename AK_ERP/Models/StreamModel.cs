@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace newHR.Models
+namespace AK_HR.Models
 {
     public class StreamModel
     {

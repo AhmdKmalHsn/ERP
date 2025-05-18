@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace newHR.Controllers.mySql
+namespace AK_HR.Controllers.mySql
 {
     public class MySqlController : Controller
     {

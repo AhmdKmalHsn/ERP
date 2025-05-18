@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(newHR.Startup))]
-namespace newHR
+[assembly: OwinStartupAttribute(typeof(AK_HR.Startup))]
+namespace AK_HR
 {
     public partial class Startup
     {

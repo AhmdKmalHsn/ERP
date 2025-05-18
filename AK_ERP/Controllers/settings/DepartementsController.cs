@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using AK_HR.Models;
 
-namespace newHR.Controllers.settings
+namespace AK_HR.Controllers.settings
 {
     public class DepartementsController : Controller
     {

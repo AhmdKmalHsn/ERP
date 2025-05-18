@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace newHR
+namespace AK_HR
 {
     public class BundleConfig
     {

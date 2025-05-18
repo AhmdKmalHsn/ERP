@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using newHR.Models;
+using AK_HR.Models;
 
-namespace newHR
+namespace AK_HR
 {
     public partial class Startup
     {
