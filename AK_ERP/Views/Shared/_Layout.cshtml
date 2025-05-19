@@ -147,13 +147,9 @@ and
     <!--script src="~/assets/js/feather.min.js"></script-->
     <script src="~/assets/js/bootstrap.bundle.min.js"></script>
     <script src="~/assets/js/script.js?version=2.1"></script>
-    <script src="~/assets/js/anijs.js"></script>
-    <script src="~/assets/js/anijs-helper-scrollreveal.js"></script>
     <script type="text/javascript">
-        //$('#sidebarCollapse').click();
         document.addEventListener("DOMContentLoaded", function (event) {
             $("#page").show()
-            
         });
         function logOut() {
             EMPS = [];
@@ -161,16 +157,12 @@ and
         }
         
     </script>
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    
 </body>
 <script>
 function collapse() {
     ($('#sidebar').width() > 0) ?
         $('#sidebar').animate({ width: '0px', minWidth: '0px' }, 800) :
         $('#sidebar').animate({ width: '220px', minWidth: '220px' }, 800)
-               /* if ($('#sidebar').position().left < 0)
-                    $('#wrapper').animate({ left: '220px' }, 800)
-                else $('#wrapper').animate({ left: '0px' }, 800)*/
             }
 </script>
