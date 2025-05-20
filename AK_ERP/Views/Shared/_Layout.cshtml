@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/leaf.svg">
 
-    @Html.Partial("~/views/shared/_Libs.cshtml")
+  
 
     <style>
         #sidebar {
@@ -87,6 +87,7 @@
             position:relative;
         }
     </style>
+    @Html.Partial("~/views/shared/_Libs.cshtml")
 </head>
 <script>
     var EMPS = [];
@@ -115,7 +116,7 @@ and
 )
 `
 </script>
-<body class="d-flex flex-column h-100">
+<body class="flex-column h-100">
     <div id="page" style="display: none">
         <div class="wrapper">
             @Html.Partial("~/views/shared/_SideBar.cshtml")

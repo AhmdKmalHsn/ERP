@@ -211,6 +211,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MasterDataController.cs" />
     <Compile Include="Controllers\mySql\MySqlController.cs" />
+    <Compile Include="Controllers\SqlController.cs" />
     <Compile Include="Controllers\static_class.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -5,7 +5,7 @@ function readSQL(sql) {
     async: false,
     data: { sql: sql },
     success: function (res) {
-      data = JSON.parse(res);
+      data = res//JSON.parse(res);
     },
   });
   return data;
