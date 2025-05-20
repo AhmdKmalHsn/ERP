@@ -12,22 +12,21 @@ namespace AK_HR.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AK_Modules
+    public partial class AK_Roles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AK_Modules()
+        public AK_Roles()
         {
             this.AK_Roles_lines = new HashSet<AK_Roles_lines>();
+            this.Ak_Users = new HashSet<Ak_Users>();
         }
     
         public int Id { get; set; }
-        public string ModuleName { get; set; }
-        public string Title { get; set; }
-        public string url { get; set; }
-        public string Header { get; set; }
-        public string SQLSelect { get; set; }
+        public string role_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AK_Roles_lines> AK_Roles_lines { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ak_Users> Ak_Users { get; set; }
     }
 }

@@ -1123,7 +1123,6 @@
     <Content Include="Views\Leave\Update.cshtml" />
     <Content Include="Views\SSE\Index.cshtml" />
     <Content Include="Views\MasterData\Index.cshtml" />
-    <Content Include="Views\Noti\Index.cshtml" />
     <Content Include="Views\MasterData\jobs.cshtml" />
     <Content Include="Views\MasterData\insuAuth.cshtml" />
     <Content Include="Views\MasterData\depts.cshtml" />

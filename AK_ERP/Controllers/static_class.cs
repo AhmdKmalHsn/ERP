@@ -69,7 +69,7 @@ namespace AK_HR.Controllers
             ds.Tables.Add(dt_data);
             return ds;
         }
-        static public DataSet updatebysql(string sql)
+        static public DataSet updatebysql(string sql)//for update and delete 
         {
             var ds = new DataSet();
             var dt_data = new DataTable("data");

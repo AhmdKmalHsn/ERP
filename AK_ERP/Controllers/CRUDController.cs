@@ -21,8 +21,12 @@ namespace AK_HR.Controllers
         {
             return View();
         }
-        
+        public ActionResult Read(string sql)
+                {
+                    return Content(JsonConvert.SerializeObject(static_class.getbysql(sql).Tables[1], Formatting.Indented), "application/json");
+                }
         /********************** helpers ****************************/
+        
         public DataSet ReadSql(string sql = "")
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CS"].ConnectionString);
@@ -94,22 +98,6 @@ namespace AK_HR.Controllers
             return Content(resJson["name"].ToString(), "application/json; charset=utf-8");
         }
         /************************ test area ************************/
-        public string ConvertDataTabletoString(DataTable dt)
-        {
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            List<Dictionary<string, object>> rows = new List<Dictionary<string, object>>();
-            Dictionary<string, object> row;
-            foreach (DataRow dr in dt.Rows)
-            {
-                row = new Dictionary<string, object>();
-                foreach (DataColumn col in dt.Columns)
-                {
-                    row.Add(col.ColumnName, dr[col]);
-                }
-                rows.Add(row);
-            }
-            return serializer.Serialize(rows);
-        }
         /*********************** db context **************/
         public DataTable getData(string cmdText)
         {
