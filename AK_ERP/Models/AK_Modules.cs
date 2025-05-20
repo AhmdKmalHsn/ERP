@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AK_HR.Models
+namespace AK_ERP.Models
 {
     using System;
     using System.Collections.Generic;

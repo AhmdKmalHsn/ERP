@@ -1,4 +1,209 @@
-﻿<p>demo:</p>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form to JSON Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .checkbox-group, .radio-group {
+            margin: 10px 0;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background: #45a049;
+            }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e9e9e9;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form to JSON Demo</h1>
+
+    <form id="demoForm">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label>Gender:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gender" value="male"> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Interests:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="interests[]" value="sports"> Sports</label>
+                <label><input type="checkbox" name="interests[]" value="music"> Music</label>
+                <label><input type="checkbox" name="interests[]" value="reading"> Reading</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <select id="country" name="country">
+                <option value="">Select</option>
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="uk">United Kingdom</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" rows="4"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Address:</label>
+            <input type="text" name="address[street]" placeholder="Street">
+            <input type="text" name="address[city]" placeholder="City">
+            <input type="text" name="address[zip]" placeholder="Zip Code">
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>JSON Output:</h2>
+    <div id="result">Form data will appear here as JSON</div>
+
+    <script>
+        $(document).ready(function() {
+            $('#demoForm').submit(function(e) {
+                e.preventDefault();
+
+                // Convert form to JSON
+                const jsonData = formToJsonAdvanced('#demoForm');
+
+                // Display the JSON
+                $('#result').text(JSON.stringify(jsonData, null, 2));
+
+                // In a real app, you would send this to the server:
+                // $.ajax({
+                //     type: 'POST',
+                //     url: '/your-endpoint',
+                //     contentType: 'application/json',
+                //     data: JSON.stringify(jsonData),
+                //     success: function(response) {
+                //         console.log('Success:', response);
+                //     }
+                // });
+            });
+
+            // Advanced form to JSON converter
+            function formToJsonAdvanced(formSelector) {
+                const jsonObject = {};
+
+                $(formSelector).find('input, select, textarea').each(function() {
+                    const $el = $(this);
+                    const name = $el.attr('name');
+
+                    if (!name) return;
+
+                    // Handle checkboxes
+                    if ($el.is(':checkbox')) {
+                        if (!jsonObject[name]) {
+                            // Remove [] from array fields if present
+                            const cleanName = name.endsWith('[]') ? name.slice(0, -2) : name;
+                            jsonObject[cleanName] = [];
+                        }
+                        if ($el.is(':checked')) {
+                            const cleanName = name.endsWith('[]') ? name.slice(0, -2) : name;
+                            jsonObject[cleanName].push($el.val());
+                        }
+                    }
+                    // Handle radio buttons
+                    else if ($el.is(':radio')) {
+                        if ($el.is(':checked')) {
+                            jsonObject[name] = $el.val();
+                        }
+                    }
+                    // Handle nested objects (address[street])
+                    else if (name.includes('[') && name.includes(']')) {
+                        const keys = name.split(/\[|\]/).filter(k => k !== '');
+                        let tempObj = jsonObject;
+
+                        for (let i = 0; i < keys.length; i++) {
+                            const key = keys[i];
+                            if (i === keys.length - 1) {
+                                tempObj[key] = $el.val();
+                            } else {
+                                if (!tempObj[key]) {
+                                    tempObj[key] = {};
+                                }
+                                tempObj = tempObj[key];
+                            }
+                        }
+                    }
+                    // Handle regular fields
+                    else {
+                        jsonObject[name] = $el.val();
+                    }
+                });
+
+                return jsonObject;
+            }
+        });
+    </script>
+</body>
+</html>
+<!--
 <script>
     let sqlR = ``
     let sqlC = ``
@@ -32,3 +237,4 @@
             }
     log(filter(table, columns))
 </script>
+-->

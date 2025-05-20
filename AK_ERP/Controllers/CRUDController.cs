@@ -21,12 +21,33 @@ namespace AK_HR.Controllers
         {
             return View();
         }
+        public ActionResult Form(string data)
+        {
+            JObject obj = JObject.Parse(data==null?"{}":data);
+            string sql1 = "";
+            string sql2 = "";
+            foreach (JProperty property in obj.Properties())
+            {
+                string key = property.Name;
+                JToken value = property.Value;
+                if (property.Value.Type != JTokenType.Array)
+                {
+                    sql1 += $"{key},";
+                    sql2 += $"'{value}',";
+                }
+            }
+            sql1 = sql1.Substring(0,sql1.Length-1);
+            sql2 = sql2.Substring(0,sql2.Length-1);
+            
+            string sql = $"insert into data({sql1})values({sql2})";
+
+            return Content(sql, "application/json");
+        }
+        /********************** helpers ****************************/
         public ActionResult Read(string sql)
                 {
                     return Content(JsonConvert.SerializeObject(static_class.getbysql(sql).Tables[1], Formatting.Indented), "application/json");
                 }
-        /********************** helpers ****************************/
-        
         public DataSet ReadSql(string sql = "")
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CS"].ConnectionString);

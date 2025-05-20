@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AK_HR</RootNamespace>
-    <AssemblyName>AK_HR</AssemblyName>
+    <RootNamespace>AK_ERP</RootNamespace>
+    <AssemblyName>AK_ERP</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -209,427 +209,40 @@
     <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\ExcelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MasterDataController.cs" />
     <Compile Include="Controllers\mySql\MySqlController.cs" />
-    <Compile Include="Controllers\SqlController.cs" />
     <Compile Include="Controllers\static_class.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Absence.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AbsenceType.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Accessibility.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AClog.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AdditionApproval.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Address.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Administration.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AK_Employees.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AK_events.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AK_events_lines.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AK_Fields.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AK_Forms.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AK_Menu.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
+    <Compile Include="Models\AK_logins.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AK_Modules.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AK_Queries.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
+    <Compile Include="Models\AK_Roles.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AK_Shifts.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
+    <Compile Include="Models\AK_Roles_lines.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AK_Simple.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
+    <Compile Include="Models\Ak_Users.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AK_work_periods.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AllowanceGroup.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Attachment.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Attendance.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AttendanceType.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AttTable.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Authority.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BankAccount.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BasicBayWork.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BasicBayWorkLine.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Bonu.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CashOrBank.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\changeLog.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ChangelogDetail.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Class.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Company.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CompanyDetail.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ContractType.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ContributionPeriod.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CostCenter.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CountryOfBirth.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Ctizenship.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Currency.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Customer.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Deduction.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Delay.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DelayFromTo.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Departement.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DeptAssign.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EducationalStatu.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmpAssign.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Employee.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmployeeGroup.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmployeeSubGroup.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmployeeTransfer.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EventType.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Finance.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\General.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Grade.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HealthInsuranceCompanyName.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Home.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HomeCity.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HomeCountry.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HRModels.Context.cs">
+    <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HRModels.Context.tt</DependentUpon>
+      <DependentUpon>Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\HRModels.cs">
+    <Compile Include="Models\Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HRModels.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\HRModels.Designer.cs">
+    <Compile Include="Models\Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HRModels.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Incentive.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\InsuranceAuthority.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\InsuranceDetail.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\InsurancePrecentage.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\InsuranceType.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\JobHistory.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\JobTitle.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LeaveFromTo.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Level.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LiveCover.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Location.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MedicalCover.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Message.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Month.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_conflictdetectionconfigrequest.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_conflictdetectionconfigresponse.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_lsns.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_originatorid_history.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_request.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_response.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_topologyrequest.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_topologyresponse.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpub_identity_range.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MyShift.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Nationality.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\OtherAllowance.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PayllorArea.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Payment.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PaymentDeduction.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PayScaleArea.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PayScaleType.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Personal.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PlaceOfBirth.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PostingPeriod.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Productivity.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Profit.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ReasonForEvent.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RecurringOneTime.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Religion.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Remark.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Request.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Role.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Roles2.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SalarySheet.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SalarySheet1.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SalarySheetGroup.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Sanction.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sanctions_reasons.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Shift.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ShiftHoliday.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SocialInsurance.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Status.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\StreamModel.cs" />
-    <Compile Include="Models\sysarticle.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysarticlecolumn.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysarticleupdate.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\syspublication.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysreplserver.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysschemaarticle.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\syssubscription.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\systranschema.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Tax.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tempshift.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TempShiftEntry.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Transfer.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TypeEmployee.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TypeOfHealthInsurance.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Users2.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\users_Authorities.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Vacation.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\WageCode.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\XReligion.cs">
-      <DependentUpon>HRModels.tt</DependentUpon>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -908,15 +521,15 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\HRModels.Context.tt">
+    <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HRModels.edmx</DependentUpon>
-      <LastGenOutput>HRModels.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\HRModels.tt">
+    <Content Include="Models\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HRModels.edmx</DependentUpon>
-      <LastGenOutput>HRModels.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -937,16 +550,16 @@
     <Content Include="Assets\webfonts\fa-solid-900.ttf" />
     <Content Include="Assets\webfonts\fa-solid-900.woff" />
     <Content Include="Assets\webfonts\fa-solid-900.woff2" />
-    <EntityDeploy Include="Models\HRModels.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HRModels.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\HRModels.edmx.diagram">
-      <DependentUpon>HRModels.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\ahmd.pubxml" />
     <None Include="Properties\PublishProfiles\IIS.pubxml" />
     <None Include="Properties\Settings.settings">
@@ -1060,83 +673,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\ChangeLog\Index.cshtml" />
     <Content Include="Views\Home\Log.cshtml" />
-    <Content Include="Views\Mac\Index.cshtml" />
-    <Content Include="Views\Mac\MacAtt.cshtml" />
-    <Content Include="Views\Mac\MacAtt2.cshtml" />
-    <Content Include="Views\Mac\MacReport.cshtml" />
-    <Content Include="Views\Mac\MacUp.cshtml" />
-    <Content Include="Views\PostingPeriod\Index.cshtml" />
-    <Content Include="Views\Reports\All.cshtml" />
-    <Content Include="Views\Reports\Attendance.cshtml" />
-    <Content Include="Views\Reports\AttendanceTotal.cshtml" />
-    <Content Include="Views\Reports\EditPrivate.cshtml" />
-    <Content Include="Views\Reports\Employees.cshtml" />
-    <Content Include="Views\Reports\index.cshtml" />
-    <Content Include="Views\Reports\Loans.cshtml" />
-    <Content Include="Views\Reports\payments.cshtml" />
-    <Content Include="Views\Reports\report.cshtml" />
-    <Content Include="Views\Roles\Add.cshtml" />
-    <Content Include="Views\Roles\Edit.cshtml" />
-    <Content Include="Views\Roles\Index.cshtml" />
-    <Content Include="Views\Roles\UsersAdd.cshtml" />
-    <Content Include="Views\Roles\UsersIndex.cshtml" />
-    <Content Include="Views\Shared\Layout.cshtml" />
-    <Content Include="Views\SQL\Index.cshtml" />
-    <Content Include="Views\TempShift\All.cshtml" />
-    <Content Include="Views\TempShift\Entry.cshtml" />
-    <Content Include="Views\TempShift\Index.cshtml" />
-    <Content Include="Views\TempShift\PrivateShift.cshtml" />
-    <Content Include="Views\Truant\Attendance.cshtml" />
-    <Content Include="Views\Truant\AttendanceAll.cshtml" />
-    <Content Include="Views\Truant\Details.cshtml" />
-    <Content Include="Views\Truant\Index.cshtml" />
-    <Content Include="Views\Truant\Late.cshtml" />
-    <Content Include="Views\Truant\SalaryIndex.cshtml" />
-    <Content Include="Views\Truant\SalarySheet.cshtml" />
     <Content Include="Views\Excel\Index.cshtml" />
-    <Content Include="Views\Truant\AttendanceNew.cshtml" />
-    <Content Include="Views\Truant\Abscence.cshtml" />
-    <Content Include="Views\Truant\AttendanceTest.cshtml" />
-    <Content Include="Views\Payments\Index.cshtml" />
-    <Content Include="Views\Payments\Create.cshtml" />
-    <Content Include="Views\Leave\Index.cshtml" />
-    <Content Include="Views\Leave\Create.cshtml" />
-    <Content Include="Views\Leave\Update.cshtml" />
-    <Content Include="Views\SSE\Index.cshtml" />
-    <Content Include="Views\MasterData\Index.cshtml" />
-    <Content Include="Views\MasterData\jobs.cshtml" />
-    <Content Include="Views\MasterData\insuAuth.cshtml" />
-    <Content Include="Views\MasterData\depts.cshtml" />
-    <Content Include="Views\MasterData\edus.cshtml" />
-    <Content Include="Views\Request\Index.cshtml" />
-    <Content Include="Views\Home\license.cshtml" />
     <Content Include="Views\CRUD\Index.cshtml" />
-    <Content Include="Views\Reports\CutsReport.cshtml" />
-    <Content Include="Views\Reports\paymentsDept.cshtml" />
     <Content Include="Views\CRUD\simplest.cshtml" />
-    <Content Include="Views\module\Index.cshtml" />
-    <Content Include="Views\module\Setting.cshtml" />
-    <Content Include="Views\module\Module.cshtml" />
-    <Content Include="Views\module\Module_list.cshtml" />
     <Content Include="Views\Excel\Excel.cshtml" />
     <Content Include="Views\Home\test.cshtml" />
     <Content Include="Views\Shared\_SideBar.cshtml" />
@@ -1147,7 +690,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\" />
-    <Folder Include="Views\Shared\component\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
