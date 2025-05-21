@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AK_logins">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" />
+    <Property Name="username" Type="nvarchar(max)" />
+    <Property Name="login_at" Type="datetime" />
+    <Property Name="login_from" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AK_Modules">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleName" Type="nvarchar(max)" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="url" Type="nvarchar(max)" />
+    <Property Name="Header" Type="nvarchar(max)" />
+    <Property Name="SQLSelect" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AK_Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AK_Roles_lines">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_id" Type="int" />
+    <Property Name="module_id" Type="int" Nullable="false" />
+    <Property Name="module_name" Type="int" />
+    <Property Name="acesss" Type="bit" />
+    <Property Name="read" Type="bit" />
+    <Property Name="create" Type="bit" />
+    <Property Name="update" Type="bit" />
+    <Property Name="delete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Ak_Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="All" Type="smallint" />
+    <Property Name="Departments" Type="smallint" />
+    <Property Name="Employees" Type="smallint" />
+    <Property Name="HaveApprove" Type="bit" />
+    <Property Name="ApproveId" Type="int" />
+    <Property Name="UserType" Type="int" />
+    <Property Name="Parent" Type="int" />
+    <Property Name="StageClass" Type="int" />
+    <Property Name="ip_restrict" Type="nvarchar" MaxLength="50" />
+    <Property Name="active" Type="nchar" MaxLength="10" />
+    <Property Name="login_at" Type="datetime" />
+    <Property Name="login_to" Type="datetime" />
+    <Property Name="login_permit" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="token" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK__AK_logins__useri__5C229E14">
+    <End Role="Ak_Users" Type="Self.Ak_Users" Multiplicity="0..1" />
+    <End Role="AK_logins" Type="Self.AK_logins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ak_Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AK_logins">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AK_Roles___modul__59463169">
+    <End Role="AK_Modules" Type="Self.AK_Modules" Multiplicity="1" />
+    <End Role="AK_Roles_lines" Type="Self.AK_Roles_lines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AK_Modules">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AK_Roles_lines">
+        <PropertyRef Name="module_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AK_Roles___role___5A3A55A2">
+    <End Role="AK_Roles" Type="Self.AK_Roles" Multiplicity="0..1" />
+    <End Role="AK_Roles_lines" Type="Self.AK_Roles_lines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AK_Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AK_Roles_lines">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ak_Users__RoleId__4BEC364B">
+    <End Role="AK_Roles" Type="Self.AK_Roles" Multiplicity="0..1" />
+    <End Role="Ak_Users" Type="Self.Ak_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AK_Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ak_Users">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="AK_logins" EntityType="Self.AK_logins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AK_Modules" EntityType="Self.AK_Modules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AK_Roles" EntityType="Self.AK_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AK_Roles_lines" EntityType="Self.AK_Roles_lines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ak_Users" EntityType="Self.Ak_Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__AK_logins__useri__5C229E14" Association="Self.FK__AK_logins__useri__5C229E14">
+      <End Role="Ak_Users" EntitySet="Ak_Users" />
+      <End Role="AK_logins" EntitySet="AK_logins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AK_Roles___modul__59463169" Association="Self.FK__AK_Roles___modul__59463169">
+      <End Role="AK_Modules" EntitySet="AK_Modules" />
+      <End Role="AK_Roles_lines" EntitySet="AK_Roles_lines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AK_Roles___role___5A3A55A2" Association="Self.FK__AK_Roles___role___5A3A55A2">
+      <End Role="AK_Roles" EntitySet="AK_Roles" />
+      <End Role="AK_Roles_lines" EntitySet="AK_Roles_lines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ak_Users__RoleId__4BEC364B" Association="Self.FK__Ak_Users__RoleId__4BEC364B">
+      <End Role="AK_Roles" EntitySet="AK_Roles" />
+      <End Role="Ak_Users" EntitySet="Ak_Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

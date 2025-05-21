@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AK_ERP</RootNamespace>
-    <AssemblyName>AK_ERP</AssemblyName>
+    <RootNamespace>AK_HR</RootNamespace>
+    <AssemblyName>AK_HR</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -211,6 +211,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\mySql\MySqlController.cs" />
     <Compile Include="Controllers\static_class.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -560,8 +561,6 @@
     <Content Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\ahmd.pubxml" />
-    <None Include="Properties\PublishProfiles\IIS.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -686,6 +685,7 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Shared\_Libs.cshtml" />
     <Content Include="Views\Shared\_NotAuthorized.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

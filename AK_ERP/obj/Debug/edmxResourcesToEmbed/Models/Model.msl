@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="AK_logins">
+      <EntityTypeMapping TypeName="Model.AK_logins">
+        <MappingFragment StoreEntitySet="AK_logins">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="login_at" ColumnName="login_at" />
+          <ScalarProperty Name="login_from" ColumnName="login_from" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AK_Modules">
+      <EntityTypeMapping TypeName="Model.AK_Modules">
+        <MappingFragment StoreEntitySet="AK_Modules">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="SQLSelect" ColumnName="SQLSelect" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AK_Roles">
+      <EntityTypeMapping TypeName="Model.AK_Roles">
+        <MappingFragment StoreEntitySet="AK_Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AK_Roles_lines">
+      <EntityTypeMapping TypeName="Model.AK_Roles_lines">
+        <MappingFragment StoreEntitySet="AK_Roles_lines">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="module_id" ColumnName="module_id" />
+          <ScalarProperty Name="module_name" ColumnName="module_name" />
+          <ScalarProperty Name="acesss" ColumnName="acesss" />
+          <ScalarProperty Name="read" ColumnName="read" />
+          <ScalarProperty Name="create" ColumnName="create" />
+          <ScalarProperty Name="update" ColumnName="update" />
+          <ScalarProperty Name="delete" ColumnName="delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ak_Users">
+      <EntityTypeMapping TypeName="Model.Ak_Users">
+        <MappingFragment StoreEntitySet="Ak_Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="All" ColumnName="All" />
+          <ScalarProperty Name="Departments" ColumnName="Departments" />
+          <ScalarProperty Name="Employees" ColumnName="Employees" />
+          <ScalarProperty Name="HaveApprove" ColumnName="HaveApprove" />
+          <ScalarProperty Name="ApproveId" ColumnName="ApproveId" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+          <ScalarProperty Name="StageClass" ColumnName="StageClass" />
+          <ScalarProperty Name="ip_restrict" ColumnName="ip_restrict" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="login_at" ColumnName="login_at" />
+          <ScalarProperty Name="login_to" ColumnName="login_to" />
+          <ScalarProperty Name="login_permit" ColumnName="login_permit" />
+          <ScalarProperty Name="token" ColumnName="token" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

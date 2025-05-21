@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AK_ERP.Models
+namespace AK_HR.Models
 {
     using System;
     using System.Data.Entity;
