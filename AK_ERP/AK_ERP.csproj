@@ -206,7 +206,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AK_RolesController.cs" />
     <Compile Include="Controllers\Ak_UsersController.cs" />
     <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\ExcelController.cs" />
@@ -253,9 +252,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\AK_RolesVM.cs" />
-    <Compile Include="ViewModels\AK_Roles_linesVM.cs" />
-    <Compile Include="ViewModels\RolesVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="1.gif" />
@@ -706,7 +702,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51346</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50905/</IISUrl>
+          <IISUrl>http://localhost:50905</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

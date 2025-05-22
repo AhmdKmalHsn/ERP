@@ -31,6 +31,6 @@ namespace AK_HR.Models
         public virtual DbSet<AK_Roles_lines> AK_Roles_lines { get; set; }
         public virtual DbSet<Ak_Users> Ak_Users { get; set; }
 
-        public System.Data.Entity.DbSet<AK_HR.ViewModels.RolesVM> RolesVMs { get; set; }
+    
     }
 }

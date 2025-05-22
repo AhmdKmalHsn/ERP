@@ -7,11 +7,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using AK_HR.Models;
 
 namespace AK_HR.Controllers
 {
     public class CRUDController : Controller
     {
+        private Entities db = new Entities();
         // GET: CRUD
         public ActionResult Index()
         {
@@ -21,9 +23,9 @@ namespace AK_HR.Controllers
         {
             return View();
         }
-        public ActionResult Form(string data)
+        public ActionResult Form(string dataObject)
         {
-            JObject obj = JObject.Parse(data==null?"{}":data);
+            JObject obj = JObject.Parse(dataObject==null?"{}":dataObject);
             string sql1 = "";
             string sql2 = "";
             foreach (JProperty property in obj.Properties())
@@ -42,6 +44,74 @@ namespace AK_HR.Controllers
             string sql = $"insert into data({sql1})values({sql2})";
 
             return Content(sql, "application/json");
+        }
+        //ai conversion
+        public ActionResult InsertRole(string dataObject)
+        {
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    var obj = JObject.Parse(dataObject ?? "{}");
+
+                    // 1. Insert the main role
+                    var role = new AK_Roles();
+
+                    foreach (JProperty property in obj.Properties())
+                    {
+                        if (property.Name != "Roles_Lines" && property.Value.Type != JTokenType.Array)
+                        {
+                            var propInfo = role.GetType().GetProperty(property.Name);
+                            if (propInfo != null)
+                            {
+                                propInfo.SetValue(role, Convert.ChangeType(property.Value.ToString(), propInfo.PropertyType));
+                            }
+                        }
+                    }
+
+                    db.AK_Roles.Add(role);
+                    db.SaveChanges(); // This generates the role_id
+
+                    // 2. Insert role lines if they exist
+                    if (obj["Roles_Lines"] != null && obj["Roles_Lines"].Type == JTokenType.Array)
+                    {
+                        var roleLines = new List<AK_Roles_lines>();
+
+                        foreach (var line in obj["Roles_Lines"])
+                        {
+                            var roleLine = new AK_Roles_lines
+                            {
+                                role_id = role.Id // Assuming this is the FK property name
+                            };
+
+                            foreach (JProperty lineProperty in line)
+                            {
+                                if (lineProperty.Value.Type != JTokenType.Array)
+                                {
+                                    var propInfo = roleLine.GetType().GetProperty(lineProperty.Name);
+                                    if (propInfo != null)
+                                    {
+                                        propInfo.SetValue(roleLine, Convert.ChangeType(lineProperty.Value.ToString(), propInfo.PropertyType));
+                                    }
+                                }
+                            }
+
+                            roleLines.Add(roleLine);
+                        }
+
+                        db.AK_Roles_lines.AddRange(roleLines);
+                        db.SaveChanges();
+                    }
+
+                    transaction.Commit();
+                    return Json(new { success = true, role_id = role.Id },JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    return Json(new { success = false, error = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
+            }
         }
         /********************** helpers ****************************/
         public ActionResult Read(string sql)
