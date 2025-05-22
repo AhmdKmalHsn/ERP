@@ -206,12 +206,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AK_RolesController.cs" />
+    <Compile Include="Controllers\Ak_UsersController.cs" />
     <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\ExcelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\mySql\MySqlController.cs" />
     <Compile Include="Controllers\static_class.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -252,14 +253,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AK_RolesVM.cs" />
+    <Compile Include="ViewModels\AK_Roles_linesVM.cs" />
+    <Compile Include="ViewModels\RolesVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="1.gif" />
-    <Content Include="Assets\Attendance.css" />
-    <Content Include="Assets\Attendance.js" />
-    <Content Include="Assets\Attendance2.js" />
-    <Content Include="Assets\AttendanceSetup.js" />
-    <Content Include="Assets\AttendanceSetup2.js" />
     <Content Include="Assets\css\all.min.css" />
     <Content Include="Assets\css\anicollection.css" />
     <Content Include="Assets\css\animate.css" />
@@ -280,12 +279,6 @@
     <Content Include="Assets\css\splash.css" />
     <Content Include="Assets\css\switch.css" />
     <Content Include="Assets\css\team.css" />
-    <Content Include="Assets\dataTable\buttons.html5.min.js" />
-    <Content Include="Assets\dataTable\buttons.print.min.js" />
-    <Content Include="Assets\dataTable\dataTables.buttons.min.js" />
-    <Content Include="Assets\dataTable\jszip.min.js" />
-    <Content Include="Assets\dataTable\pdfmake.min.js" />
-    <Content Include="Assets\dataTable\vfs_fonts.js" />
     <Content Include="Assets\fonts\LineIcons.svg" />
     <Content Include="Assets\img\bg.svg" />
     <Content Include="Assets\img\bgrnd.jpg" />
@@ -518,10 +511,8 @@
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\jquery.dataTables.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
@@ -566,8 +557,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\changelog.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -645,22 +634,13 @@
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
     <Content Include="Scripts\excelexportjs.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
-    <Content Include="Scripts\jquery.signalR-2.4.3.js" />
     <Content Include="Scripts\jquery.signalR-2.4.3.min.js" />
     <Content Include="Scripts\jquery.twbsPagination.min.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\xlsx.full.min.js" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -685,7 +665,11 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Shared\_Libs.cshtml" />
     <Content Include="Views\Shared\_NotAuthorized.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\AK_Roles\Create.cshtml" />
+    <Content Include="Views\AK_Roles\Delete.cshtml" />
+    <Content Include="Views\AK_Roles\Details.cshtml" />
+    <Content Include="Views\AK_Roles\Edit.cshtml" />
+    <Content Include="Views\AK_Roles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -694,7 +678,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
