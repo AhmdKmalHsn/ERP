@@ -1,0 +1,26 @@
+﻿@model IEnumerable<dynamic>
+
+<h2>Controllers in Application</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Controller</th>
+            <th>Namespace</th>
+            <th>Actions</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item </td>
+                <td>@item.Namespace</td>
+                <td>
+                    string.Join(", ", controller.Actions)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form to JSON with Table Data</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e9e9e9;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .table-controls {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="orderForm">
+        <div class="form-group">
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName" name="customerName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="orderDate"> Date:</label>
+            <input type="date" id="orderDate" name="orderDate" required>
+        </div>
+        <hr>
+        <h2>Items</h2>
+        <div class="table-controls">
+            <button type="button" id="addRow">+</button>
+        </div>
+        
+        <table id="itemsTable" data-table-name="items">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="table-controls">
+            <button type="button" id="addRow1">+</button>
+        </div>
+        <table id="itemsTable1" data-table-name="inventory-list">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="table-controls">
+            <button type="button" id="addRow2">+</button>
+        </div>
+        <table id="itemsTable2" data-table-name="inventory">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <button type="submit">Submit Order</button>
+        <button type="button" id="test">test</button>
+
+    </form>
+
+    <h2>JSON Output:</h2>
+    <div id="result">Form data will appear here as JSON</div>
+
+    <script>
+        $(document).ready(function () {
+
+            function addRow(dom) {
+                let rowCount = $(dom + ' tbody tr').length++;
+                const newRow = `
+                    <tr data-row-id="${rowCount}">
+                        <td><input type="text" name="product" class="product" required></td>
+                        <td><input type="number" name="quantity" class="quantity" min="1" required></td>
+                        <td><input type="number" name="price" class="price" step="0.01" min="0" required></td>
+                        <td><button type="button" class="removeRow">Remove</button></td>
+                    </tr>
+                `;
+                $(`${dom} tbody`).append(newRow);
+            }
+            function remove(dom, e) {
+                $(e).closest('tr').remove();
+            }
+
+            // Function to convert form to JSON
+            function formToJson(dom) {
+                let header = $(`${dom} [name]:not(table [name])`)
+                let footer = $(`${dom} table`)
+
+                console.log(header);
+                let formData = {};
+                //for all tables
+                for (let i = 0; i < header.length; i++) 
+                {
+                    formData[header.eq(i).attr('name')]=header.eq(i).val();
+                }
+                for (let i = 0; i < footer.length; i++) 
+                {
+                    let tableName = footer.eq(i).attr('data-table-name');
+                    let rows = $(`[data-table-name=${tableName}] tbody tr`);
+                    //for all tr in table(rows)
+                    console.log(tableName)
+                    let rowsData =[];
+                    for (let j = 0; j < rows.length; j++) 
+                    {
+                        let cells = rows.eq(j).find('td [name]');
+                        let rowDataObj={}
+                        for (let k = 0; k < cells.length; k++) {
+                            //console.log(`{${cells.eq(k).attr("name")}:${cells.eq(k).val()}}`);
+                            rowDataObj[cells.eq(k).attr("name")] = cells.eq(k).val();                              
+                        }
+                        rowsData.push(rowDataObj);
+                    }
+                    formData[tableName] = rowsData;
+                }
+                
+
+                console.log(formData);
+            }
+
+            $("#test").click(() => {
+                formToJson(`form`);
+            })
+
+            // Add new row to table
+            $('#addRow').click(function () {
+                addRow('#itemsTable')
+            });
+            $('#addRow1').click(function () {
+                addRow('#itemsTable1')
+            });
+            $('#addRow2').click(function () {
+                addRow('#itemsTable2')
+            });
+            // Remove row from table
+            $(document).on('click', '.removeRow', function () {
+                remove("#itemsTable", this);
+            });
+            // Form submission
+            $('#orderForm').submit(function (e) {
+                e.preventDefault();
+                //const jsonData = formToJson();
+                $('#result').text(JSON.stringify(jsonData, null, 2));
+                const formData = new FormData(formElement);
+                const jsonData = {};
+                for (const [key, value] of formData.entries()) {
+                    // Handle files differently
+                    if (value instanceof File) {
+                        jsonData[key] = { name: value.name, size: value.size };
+                    } else {
+                        // Normal processing
+                    }
+                }
+                console.log(jsonData);
+                /*
+                $.ajax({
+                    url: '/api/orders',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(jsonData),
+                    success: function(response) {
+                        console.log('Order submitted:', response);
+                    }
+                });
+                */
+            });
+
+        });
+    </script>
+</body>
+
+</html>

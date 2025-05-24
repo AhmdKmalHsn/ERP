@@ -1,0 +1,56 @@
+﻿@model AK_HR.Models.AK_logins
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AK_logins</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.login_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.login_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.login_from)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.login_from)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ak_Users.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ak_Users.UserName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

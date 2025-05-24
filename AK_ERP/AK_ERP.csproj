@@ -206,8 +206,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AK_loginsController.cs" />
+    <Compile Include="Controllers\AK_ModulesController.cs" />
     <Compile Include="Controllers\Ak_UsersController.cs" />
     <Compile Include="Controllers\CRUDController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ExcelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\mySql\MySqlController.cs" />
@@ -661,15 +664,27 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Shared\_Libs.cshtml" />
     <Content Include="Views\Shared\_NotAuthorized.cshtml" />
-    <Content Include="Views\AK_Roles\Create.cshtml" />
-    <Content Include="Views\AK_Roles\Delete.cshtml" />
-    <Content Include="Views\AK_Roles\Details.cshtml" />
-    <Content Include="Views\AK_Roles\Edit.cshtml" />
-    <Content Include="Views\AK_Roles\Index.cshtml" />
+    <Content Include="Views\AK_Modules\Create.cshtml" />
+    <Content Include="Views\AK_Modules\Delete.cshtml" />
+    <Content Include="Views\AK_Modules\Details.cshtml" />
+    <Content Include="Views\AK_Modules\Edit.cshtml" />
+    <Content Include="Views\AK_Modules\Index.cshtml" />
+    <Content Include="Views\Ak_Users\Create.cshtml" />
+    <Content Include="Views\Ak_Users\Delete.cshtml" />
+    <Content Include="Views\Ak_Users\Details.cshtml" />
+    <Content Include="Views\Ak_Users\Edit.cshtml" />
+    <Content Include="Views\Ak_Users\Index.cshtml" />
+    <Content Include="Views\AK_logins\Create.cshtml" />
+    <Content Include="Views\AK_logins\Delete.cshtml" />
+    <Content Include="Views\AK_logins\Details.cshtml" />
+    <Content Include="Views\AK_logins\Edit.cshtml" />
+    <Content Include="Views\AK_logins\Index.cshtml" />
+    <Content Include="Views\Home\ListControllers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

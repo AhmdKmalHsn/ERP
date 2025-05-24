@@ -1,0 +1,50 @@
+﻿@model AK_HR.Models.AK_logins
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AK_logins</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.login_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.login_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.login_from)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.login_from)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ak_Users.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ak_Users.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.IO;
 using System.Runtime.Remoting.Contexts;
+using System.Reflection;
 
 namespace AK_HR.Controllers
 {
@@ -39,7 +40,11 @@ namespace AK_HR.Controllers
                 return RedirectToAction("index", "home");
             }
         }
-
+        public ActionResult _NotAuthorized()
+        {
+            return View();
+        }
+       
         /**************************************/
         public ActionResult AK_LogIn(string username = "", string password = "")
         {
@@ -115,34 +120,12 @@ namespace AK_HR.Controllers
         }
         public ActionResult test()
         {
-            DataSet ds;
-            try
-            {
-                ds = static_class.is_Authrize("shifts", Request.Cookies.Get("token").Value, "p_access");
-            }
-            catch (Exception)
-            {
-                return RedirectToAction("Log", "Home");
-            }
-            if (ds.Tables[0].Rows[0]["status"].ToString() == "error")
-            {
-                return View("_NotAuthorized");
-            }
-            else
-            {
-                ViewBag.perms = static_class.o_Authrizes(Request.Cookies.Get("token").Value);//.AsEnumerable().ToList();
-                return View();
-            }
-            // return Content(JsonConvert.SerializeObject(ds), "application/json");
-        }
-        public ActionResult meals()
-        {
-            DataSet ds = static_class.is_Authrize("meals", Request.Cookies.Get("token").Value, "p_access");
-            if (ds.Tables[0].Rows[0]["status"].ToString() == "error")
-                return View("_NotAuthorized"); //Content(JsonConvert.SerializeObject(ds.Tables[0]), "application/json");
-
-            else
-                return View(ds);
+            string [] v= static_class.GetStatusView("shift",
+                (Request.Cookies.Get("token")==null? "" : Request.Cookies.Get("token").Value), 
+                RouteData.Values["controller"].ToString(),
+                RouteData.Values["action"].ToString());
+            if(v[0]!="Log") ViewBag.perms = static_class.o_Authrizes(Request.Cookies.Get("token").Value);
+            return View("~/views/"+v[1]+"/"+v[0]+".cshtml");
         }
         public ActionResult LogOut()
         {
@@ -150,7 +133,46 @@ namespace AK_HR.Controllers
 
             return RedirectToAction("log");
         }
-        
+        public ActionResult ListControllers()
+        {
+            try
+            {
+                // Get all controllers with additional information
+                var controllers = Assembly.GetExecutingAssembly().GetTypes()
+                    .Where(t => t.IsClass
+                                && !t.IsAbstract
+                                && typeof(Controller).IsAssignableFrom(t))
+                    .Select(t => new
+                    {
+                        FullName = t.FullName,
+                        ShortName = t.Name.Replace("Controller", ""),
+                        Namespace = t.Namespace,
+                        Actions = t.GetMethods(BindingFlags.Public | BindingFlags.Instance)
+                                  .Where(m => m.ReturnType == typeof(ActionResult)
+                                             || m.ReturnType.IsSubclassOf(typeof(ActionResult)))
+                                  .Select(m => m.Name)
+                                  .Distinct()
+                                  .ToList()
+                        
+                    })
+                    .OrderBy(c => c.ShortName)
+                    .ToList();
+
+                //return View(controllers);
+                return Json(controllers, JsonRequestBehavior.AllowGet);
+            }
+            catch (ReflectionTypeLoadException ex)
+            {
+                // Handle assembly loading errors
+                var loaderMessages = ex.LoaderExceptions.Select(e => e.Message);
+                return View("Error", loaderMessages);
+            }
+            catch (Exception ex)
+            {
+                // General error handling
+                return View("Error", new[] { ex.Message });
+            }
+        }
         /* upload image */
         [HttpPost]
         public ActionResult UploadFiles()

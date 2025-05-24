@@ -133,6 +133,7 @@ namespace AK_HR.Controllers
             }
             return dataSet;
         }
+        /***************************** paging ******************************/
         public string ReadSql(int pageNo = 0, int pageSize = 0, string sql = "")
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CS"].ConnectionString);
@@ -169,6 +170,7 @@ namespace AK_HR.Controllers
             string json = JsonConvert.SerializeObject(dataSet, Formatting.Indented);
             return json;
         }
+       
         public ActionResult GetByTable(int pageNo = 0, int pageSize = 0, string table = "")
         {
             return Content(GetTable(pageNo, pageSize, table), "application/json; charset=utf-8");
@@ -178,17 +180,7 @@ namespace AK_HR.Controllers
             return Content(ReadSql(pageNo, pageSize, sql), "application/json; charset=utf-8");
         }
         /********************* api json **************************/
-        public ActionResult GetSQL(string t="",string json="")
-        {
-             json = "{'a':'aaa','b':'bbb','c':'ccc'}";
-            
-            JObject resJson = JObject.Parse(json);
-            resJson["name"] = "ahmed kamal";
-            var v = resJson.CreateReader();
-            
-            return Content(resJson["name"].ToString(), "application/json; charset=utf-8");
-        }
-        /************************ test area ************************/
+       
         /*********************** db context **************/
         public DataTable getData(string cmdText)
         {

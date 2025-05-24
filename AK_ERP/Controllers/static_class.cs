@@ -13,6 +13,7 @@ namespace AK_HR.Controllers
 {
     public static class static_class
     {
+        /************************** crud ************************/
         static public DataSet getbysql(string sql)
         {
             var ds = new DataSet();
@@ -104,6 +105,7 @@ namespace AK_HR.Controllers
             ds.Tables.Add(dt_data);
             return ds;
         }
+        /************************* auth *************************/
         static public DataSet Authrizes(string token)
         {
 
@@ -145,7 +147,7 @@ namespace AK_HR.Controllers
                          AK_Modules m ON rl.module_id = m.Id
                     WHERE u.token='{token}'";
 
-            DataTable dt=new DataTable();
+            DataTable dt = new DataTable();
             try
             {
                 DataTable pure = static_class.getbysql(sql).Tables["data"];
@@ -161,7 +163,7 @@ namespace AK_HR.Controllers
                     // data of object .
                     for (int i = 0; i < pure.Rows.Count; i++)
                     {
-                        dt.Rows[0][pure.Rows[i]["module_name"].ToString()]= pure.Rows[i]["p_access"].ToString();
+                        dt.Rows[0][pure.Rows[i]["module_name"].ToString()] = pure.Rows[i]["p_access"].ToString();
                     }
                 }
             }
@@ -233,6 +235,32 @@ namespace AK_HR.Controllers
             }
             return ds;
         }
-        
+        //check  if page can access or not
+
+        static public string[] GetStatusView(string moduleName, string token, string c, string a)
+        {
+
+            DataSet ds;
+            try
+            {
+                ds = static_class.is_Authrize(moduleName, token, "p_access");
+                if (ds.Tables[0].Rows[0]["status"].ToString() == "error")
+                {
+                    return new string[] { "_NotAuthorized", "Home" };
+                }
+                else
+                {
+                    return new string[] { a, c };
+                }
+            }
+            catch (Exception)
+            {
+                return new string[] { "Log", "Home" };
+            }
+
+        }
+
+
+        /****************************************************************/
     }
 }
