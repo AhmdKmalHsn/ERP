@@ -1,15 +1,45 @@
 function readSQL(sql) {
-  var data = "";
+  var data = [];
   $.ajax({
     url: "/CRUD/Read",
     async: false,
     data: { sql: sql },
     success: function (res) {
-        console.log(res)
+        //console.log(res)
       data = res//JSON.parse(res);
     },
   });
   return data;
+}
+function readAjax(url,data) 
+{
+    var result = [];
+    try
+    {
+        $.ajax({
+            url: url,
+            async: false,
+            data: data,
+            success: function (res) {
+                //console.log(res)
+                result = res//JSON.parse(res);
+            },
+        });
+    }
+    catch(ex)
+    {
+        console.log(ex);
+    }
+    return result;
+}
+function selectList(name,id,text,table)
+{
+    let data = readSQL(`select ${id},${id}+' '+${text} from ${table}`);
+    let options = ``;
+    for (var i = 0; i < data.length; i++) {
+        options += `<option value=${data[i][id]}>${data[i][text]}</option>`
+    }
+    return `<select name="${name}">${options}</select>`;
 }
 /*function readSQL(sql) {
   var data = "";

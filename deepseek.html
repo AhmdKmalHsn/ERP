@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form to JSON with Table Data</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <style>
+   
+    </style>
+</head>
+
+<body>
+    <h1>Order Form</h1>
+    <form id="orderForm">
+        <div class="form-group">
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName" name="customerName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="orderDate"> Date:</label>
+            <input type="date" id="orderDate" name="orderDate" required>
+        </div>
+        <hr>
+        <h2>Items</h2>
+        <div class="table-controls">
+            <button type="button" id="addRow">+</button>
+        </div>
+        
+        <table id="itemsTable" data-table-name="items">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="table-controls">
+            <button type="button" id="addRow1">+</button>
+        </div>
+        <table id="itemsTable1" data-table-name="inventory-list">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="table-controls">
+            <button type="button" id="addRow2">+</button>
+        </div>
+        <table id="itemsTable2" data-table-name="inventory">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <button type="submit">Submit Order</button>
+        <button type="button" id="test">test</button>
+
+    </form>
+
+    <h2>JSON Output:</h2>
+    
+    <div id="result">Form data will appear here as JSON</div>
+    
+    <script>
+        $(document).ready(function () {
+                const newRow1 = `
+                    <tr>
+                        <td><input type="text" name="product" class="product" required></td>
+                        <td><input type="number" name="quantity" class="quantity" min="1" required></td>
+                        <td><input type="number" name="price" class="price" step="0.01" min="0" required></td>
+                        <td><button type="button" class="removeRow">Remove</button></td>
+                    </tr>
+                `;
+                const newRow2 = `
+                    <tr>
+                        <td><input type="text" name="product" placeholder="product" class="product" required></td>
+                        <td><input type="number" name="quantity" class="quantity" min="1" required></td>
+                        <td><input type="number" name="price" class="price" step="0.01" min="0" required></td>
+                        <td><input type="checkbox" name="price" class="price" required></td>
+                        <td><button type="button" class="removeRow">Remove</button></td>
+                    </tr>
+                `;
+                const newRow3 = `
+                    <tr>
+                        <td><input type="text" name="product" class="product" required></td>
+                        <td><input type="number" name="quantity" class="quantity" min="1" required></td>
+                        <td><input type="number" name="price" class="price" step="0.01" min="0" required></td>
+                        <td>
+                            <select name="category" class="category" required>
+                                <option value="">Select Category</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="furniture">Furniture</option>
+                                <option value="clothing">Clothing</option>
+                            </select>
+                        </td>
+                        <td><button type="button" class="removeRow">Remove</button></td>
+                    </tr>
+                `;
+            
+            $("#test").click(() => {
+                formToJson(`form`);
+            })
+
+            // Add new row to table
+            $('#addRow').click(function () 
+            {
+                addRow('#itemsTable',newRow1)
+            });
+            $('#addRow1').click(function () 
+            {
+                addRow('#itemsTable1',newRow2)
+            });
+            $('#addRow2').click(function () 
+            {
+                addRow('#itemsTable2',newRow3)
+            });
+            // Remove row from table
+            $(document).on('click', '.removeRow', function () {
+                remove("#itemsTable", this);
+            });
+            // Form submission
+            $('#orderForm').submit(function (e) {
+                e.preventDefault();
+                console.log(formToJson(`form`));
+                /*
+                $.ajax({
+                    url: '/api/orders',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(jsonData),
+                    success: function(response) {
+                        console.log('Order submitted:', response);
+                    }
+                });
+                */
+            });
+
+        });
+    </script>
+</body>
+
+</html>
