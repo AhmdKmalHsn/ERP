@@ -1,0 +1,11 @@
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\bin\Debug\WindowsERP.exe.config
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.csprojResolveAssemblyReference.cache
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.Form1.resources
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.Properties.Resources.resources
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.csproj.GenerateResource.Cache
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\bin\Debug\WindowsERP.exe
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\bin\Debug\WindowsERP.pdb
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.exe
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.pdb

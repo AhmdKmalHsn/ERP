@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AK_ERP", "AK_ERP\AK_ERP.csproj", "{40B4CFC2-D244-450B-9C42-E9F128C1D2B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsERP", "WindowsERP\WindowsERP.csproj", "{BDBC10A8-CCE7-45C4-8030-27BD1F6D0570}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{40B4CFC2-D244-450B-9C42-E9F128C1D2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40B4CFC2-D244-450B-9C42-E9F128C1D2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40B4CFC2-D244-450B-9C42-E9F128C1D2B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDBC10A8-CCE7-45C4-8030-27BD1F6D0570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBC10A8-CCE7-45C4-8030-27BD1F6D0570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBC10A8-CCE7-45C4-8030-27BD1F6D0570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBC10A8-CCE7-45C4-8030-27BD1F6D0570}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

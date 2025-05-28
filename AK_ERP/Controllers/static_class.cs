@@ -261,6 +261,59 @@ namespace AK_HR.Controllers
         }
 
 
-        /****************************************************************/
+        /****************************** Queries **********************************/
+        static string InsertFromObject(string table, JObject obj)
+        {
+
+            string sql1 = "";
+            string sql2 = "";
+            foreach (JProperty property in obj.Properties())
+            {
+                string key = property.Name;
+                JToken value = property.Value;
+                if (property.Value.Type != JTokenType.Array)
+                {
+                    sql1 += $"{key},";
+                    sql2 += $"'{value}',";
+                }
+            }
+            sql1 = sql1.Length > 0 ? sql1.Substring(0, sql1.Length - 1) : sql1;
+            sql2 = sql2.Length > 0 ? sql2.Substring(0, sql2.Length - 1) : sql2;
+
+            string sql = $"insert into [{table}]({sql1})values({sql2});";
+            return sql;
+        }
+        static string InsertFromObject(string table, string fkKey, object fkValue, JArray arr)
+        {
+            string sql1 = $"{fkKey},";
+            string sql2 = "";
+            //   all keys
+            foreach (JProperty property in ((JObject)arr[0]).Properties())
+            {
+                string key = property.Name;
+                if (property.Value.Type != JTokenType.Array)
+                {
+                    sql1 += $"{key},";
+                }
+            }
+            sql1 = sql1.Length > 0 ? sql1.Substring(0, sql1.Length - 1) : sql1;
+            //     all values
+            for (int i = 0; i < arr.Count; i++)
+            {
+                sql2 += $"('{fkValue}',";
+                foreach (JProperty property in ((JObject)arr[i]).Properties())
+                {
+                    JToken value = property.Value;
+                    sql2 += $"'{value}',";
+                }
+                sql2 = sql2.Length > 0 ? sql2.Substring(0, sql2.Length - 1) : sql2;
+                sql2 += "),";
+            }
+            sql2 = sql2.Length > 0 ? sql2.Substring(0, sql2.Length - 1) : sql2;
+
+            string sql = $"insert into [{table}]({sql1})values{sql2};";
+            return sql;
+        }
+
     }
 }
