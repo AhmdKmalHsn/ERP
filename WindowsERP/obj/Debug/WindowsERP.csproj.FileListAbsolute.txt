@@ -9,3 +9,4 @@ C:\Users\hp\Documents\GitHub\ERP\WindowsERP\bin\Debug\Newtonsoft.Json.dll
 C:\Users\hp\Documents\GitHub\ERP\WindowsERP\bin\Debug\Newtonsoft.Json.xml
 C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.exe
 C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.pdb
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.Roles.resources

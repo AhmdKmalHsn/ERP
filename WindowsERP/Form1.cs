@@ -115,12 +115,21 @@ namespace WindowsERP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            JObject obj = JObject.Parse(textBox1.Text == null ? "{}" : textBox1.Text);
+            try
+            {
+                new Roles().Show();
+            }
+            catch (Exception)
+            {
+
+               // throw;
+            }
+           // JObject obj = JObject.Parse(textBox1.Text == null ? "{}" : textBox1.Text);
             /* for (int i = 0; i < obj["Work"].ToList().Count; i++)
             {
                 textBox2.Text += InsertFromObject((JObject)obj["Work"][i]);
             }*/
-            textBox2.Text = InsertFromObject("Roles Line","RoleId","2",((JArray)obj["Work"]));
+            //textBox2.Text = InsertFromObject("Roles Line","RoleId","2",((JArray)obj["Work"]));
         }
 
         private void button2_Click(object sender, EventArgs e)
