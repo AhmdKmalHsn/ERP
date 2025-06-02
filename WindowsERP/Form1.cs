@@ -147,6 +147,26 @@ namespace WindowsERP
             textBox2.Text += System.Environment.NewLine; 
             textBox2.Text += UpdateFromObject("Roles Line", "RoleId", "1", ((JArray)obj["Work"]));
         }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Users().Show();
+        }
+
+        private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Roles().Show();
+        }
+
+        private void modulesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new Modules().Show(); 
+        }
+
+        private void sideBarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Sidebar().Show();
+        }
     }
 }
  

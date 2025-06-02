@@ -315,5 +315,58 @@ namespace AK_HR.Controllers
             return sql;
         }
 
+        static string UpdateFromObject(string table, string idKey, object idValue, JObject obj)
+        {
+
+            string sql1 = "";
+            foreach (JProperty property in obj.Properties())
+            {
+                string key = property.Name;
+                JToken value = property.Value;
+                if (property.Value.Type != JTokenType.Array)
+                {
+                    sql1 += $"{key}='{value}',";
+                }
+            }
+            sql1 = sql1.Length > 0 ? sql1.Substring(0, sql1.Length - 1) : sql1;
+            //sql2 = sql2.Length > 0 ? sql2.Substring(0, sql2.Length - 1) : sql2;
+
+            string sql = $"update  [{table}] set {sql1} where {idKey}={idValue};";
+            return sql;
+        }
+        static string UpdateFromObject(string table, string fkKey, object fkValue, JArray arr)
+        {
+            string sql1 = "";
+            string sql2 = "";
+            string sql = "";
+            sql1 = sql1.Length > 0 ? sql1.Substring(0, sql1.Length - 1) : sql1;
+            //     all values
+            for (int i = 0; i < arr.Count; i++)
+            {
+                sql2 = "";
+                sql1 = $"update [{table}] set ";
+                foreach (JProperty property in ((JObject)arr[i]).Properties())
+                {
+                    string key = property.Name;
+                    JToken value = property.Value;
+                    if (key.ToLower() != "id") sql1 += $"{key}= '{value}',";
+                    else sql2 += $" where {fkKey}={fkValue} and id= {value};";
+                }
+                sql1 = sql1.Length > 0 ? sql1.Substring(0, sql1.Length - 1) : sql1;
+                if (sql2.Contains("id")) sql += sql1 + sql2;
+            }
+            return sql;
+        }
+
+        static string InsertEmptyLine(string table, string fkKey, object fkValue)
+        {
+            string sql = $"insert into [{table}]({fkKey})values{fkValue};";
+            return sql;
+        }
+        static string DeleteLine(string table, string fkKey, object fkValue)
+        {
+            string sql = $"delete from [{table}] where {fkKey} = {fkValue};";
+            return sql;
+        }
     }
 }

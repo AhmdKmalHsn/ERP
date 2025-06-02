@@ -29,52 +29,70 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Roles));
             System.Windows.Forms.Label idLabel;
             System.Windows.Forms.Label role_nameLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Roles));
             this.aK_RolesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.aK_RolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._2025DataSet = new WindowsERP._2025DataSet();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.aK_RolesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.role_nameTextBox = new System.Windows.Forms.TextBox();
             this.aK_Roles_linesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aK_Roles_linesDataGridView = new System.Windows.Forms.DataGridView();
+            this.aKModulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aK_RolesTableAdapter = new WindowsERP._2025DataSetTableAdapters.AK_RolesTableAdapter();
+            this.tableAdapterManager = new WindowsERP._2025DataSetTableAdapters.TableAdapterManager();
+            this.aK_Roles_linesTableAdapter = new WindowsERP._2025DataSetTableAdapters.AK_Roles_linesTableAdapter();
+            this.aK_ModulesTableAdapter = new WindowsERP._2025DataSetTableAdapters.AK_ModulesTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.aKModulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._2025DataSet = new WindowsERP._2025DataSet();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.aK_RolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aK_RolesTableAdapter = new WindowsERP._2025DataSetTableAdapters.AK_RolesTableAdapter();
-            this.tableAdapterManager = new WindowsERP._2025DataSetTableAdapters.TableAdapterManager();
-            this.aK_Roles_linesTableAdapter = new WindowsERP._2025DataSetTableAdapters.AK_Roles_linesTableAdapter();
-            this.aK_ModulesTableAdapter = new WindowsERP._2025DataSetTableAdapters.AK_ModulesTableAdapter();
             idLabel = new System.Windows.Forms.Label();
             role_nameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.aK_RolesBindingNavigator)).BeginInit();
             this.aK_RolesBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.aK_RolesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._2025DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aK_Roles_linesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aK_Roles_linesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aKModulesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._2025DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aK_RolesBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new System.Drawing.Point(9, 50);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(21, 13);
+            idLabel.TabIndex = 1;
+            idLabel.Text = "Id:";
+            // 
+            // role_nameLabel
+            // 
+            role_nameLabel.AutoSize = true;
+            role_nameLabel.Location = new System.Drawing.Point(9, 76);
+            role_nameLabel.Name = "role_nameLabel";
+            role_nameLabel.Size = new System.Drawing.Size(58, 13);
+            role_nameLabel.TabIndex = 3;
+            role_nameLabel.Text = "role name:";
             // 
             // aK_RolesBindingNavigator
             // 
@@ -105,6 +123,41 @@
             this.aK_RolesBindingNavigator.Size = new System.Drawing.Size(695, 25);
             this.aK_RolesBindingNavigator.TabIndex = 0;
             this.aK_RolesBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // aK_RolesBindingSource
+            // 
+            this.aK_RolesBindingSource.DataMember = "AK_Roles";
+            this.aK_RolesBindingSource.DataSource = this._2025DataSet;
+            // 
+            // _2025DataSet
+            // 
+            this._2025DataSet.DataSetName = "_2025DataSet";
+            this._2025DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -138,16 +191,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -170,26 +216,8 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // aK_RolesBindingNavigatorSaveItem
             // 
@@ -200,15 +228,6 @@
             this.aK_RolesBindingNavigatorSaveItem.Text = "Save Data";
             this.aK_RolesBindingNavigatorSaveItem.Click += new System.EventHandler(this.aK_RolesBindingNavigatorSaveItem_Click);
             // 
-            // idLabel
-            // 
-            idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(9, 50);
-            idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(21, 13);
-            idLabel.TabIndex = 1;
-            idLabel.Text = "Id:";
-            // 
             // idTextBox
             // 
             this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.aK_RolesBindingSource, "Id", true));
@@ -216,15 +235,6 @@
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(100, 20);
             this.idTextBox.TabIndex = 2;
-            // 
-            // role_nameLabel
-            // 
-            role_nameLabel.AutoSize = true;
-            role_nameLabel.Location = new System.Drawing.Point(9, 76);
-            role_nameLabel.Name = "role_nameLabel";
-            role_nameLabel.Size = new System.Drawing.Size(58, 13);
-            role_nameLabel.TabIndex = 3;
-            role_nameLabel.Text = "role name:";
             // 
             // role_nameTextBox
             // 
@@ -262,12 +272,40 @@
             this.aK_Roles_linesDataGridView.Size = new System.Drawing.Size(661, 239);
             this.aK_Roles_linesDataGridView.TabIndex = 5;
             // 
+            // aKModulesBindingSource
+            // 
+            this.aKModulesBindingSource.DataMember = "AK_Modules";
+            this.aKModulesBindingSource.DataSource = this._2025DataSet;
+            // 
+            // aK_RolesTableAdapter
+            // 
+            this.aK_RolesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AK_loginsTableAdapter = null;
+            this.tableAdapterManager.AK_ModulesTableAdapter = null;
+            this.tableAdapterManager.AK_Roles_linesTableAdapter = this.aK_Roles_linesTableAdapter;
+            this.tableAdapterManager.AK_RolesTableAdapter = this.aK_RolesTableAdapter;
+            this.tableAdapterManager.Ak_UsersTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = true;
+            this.tableAdapterManager.UpdateOrder = WindowsERP._2025DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // aK_Roles_linesTableAdapter
+            // 
+            this.aK_Roles_linesTableAdapter.ClearBeforeFill = true;
+            // 
+            // aK_ModulesTableAdapter
+            // 
+            this.aK_ModulesTableAdapter.ClearBeforeFill = true;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
             this.dataGridViewTextBoxColumn1.HeaderText = "Id";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -286,16 +324,6 @@
             this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewTextBoxColumn3.ValueMember = "Id";
-            // 
-            // aKModulesBindingSource
-            // 
-            this.aKModulesBindingSource.DataMember = "AK_Modules";
-            this.aKModulesBindingSource.DataSource = this._2025DataSet;
-            // 
-            // _2025DataSet
-            // 
-            this._2025DataSet.DataSetName = "_2025DataSet";
-            this._2025DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -334,33 +362,6 @@
             this.dataGridViewCheckBoxColumn5.HeaderText = "delete";
             this.dataGridViewCheckBoxColumn5.Name = "dataGridViewCheckBoxColumn5";
             // 
-            // aK_RolesBindingSource
-            // 
-            this.aK_RolesBindingSource.DataMember = "AK_Roles";
-            this.aK_RolesBindingSource.DataSource = this._2025DataSet;
-            // 
-            // aK_RolesTableAdapter
-            // 
-            this.aK_RolesTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AK_loginsTableAdapter = null;
-            this.tableAdapterManager.AK_ModulesTableAdapter = null;
-            this.tableAdapterManager.AK_Roles_linesTableAdapter = this.aK_Roles_linesTableAdapter;
-            this.tableAdapterManager.AK_RolesTableAdapter = this.aK_RolesTableAdapter;
-            this.tableAdapterManager.Ak_UsersTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = true;
-            this.tableAdapterManager.UpdateOrder = WindowsERP._2025DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // aK_Roles_linesTableAdapter
-            // 
-            this.aK_Roles_linesTableAdapter.ClearBeforeFill = true;
-            // 
-            // aK_ModulesTableAdapter
-            // 
-            this.aK_ModulesTableAdapter.ClearBeforeFill = true;
-            // 
             // Roles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,11 +379,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.aK_RolesBindingNavigator)).EndInit();
             this.aK_RolesBindingNavigator.ResumeLayout(false);
             this.aK_RolesBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.aK_RolesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._2025DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aK_Roles_linesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aK_Roles_linesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aKModulesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._2025DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aK_RolesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

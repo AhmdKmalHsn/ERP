@@ -10,3 +10,7 @@ C:\Users\hp\Documents\GitHub\ERP\WindowsERP\bin\Debug\Newtonsoft.Json.xml
 C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.exe
 C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.pdb
 C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.Roles.resources
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.Modules.resources
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.ModulesCategory.resources
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.Sidebar.resources
+C:\Users\hp\Documents\GitHub\ERP\WindowsERP\obj\Debug\WindowsERP.Users.resources
