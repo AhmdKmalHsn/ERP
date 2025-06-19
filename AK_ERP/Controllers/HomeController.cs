@@ -14,7 +14,7 @@ using System.Reflection;
 
 namespace AK_HR.Controllers
 {
-    public class HomeController : Controller
+    public  class HomeController : Controller
     {
         public ActionResult Index()
         {
@@ -120,12 +120,11 @@ namespace AK_HR.Controllers
         }
         public ActionResult test()
         {
-            string [] v= static_class.GetStatusView("shift",
-                (Request.Cookies.Get("token")==null? "" : Request.Cookies.Get("token").Value), 
-                RouteData.Values["controller"].ToString(),
-                RouteData.Values["action"].ToString());
-            if(v[0]!="Log") ViewBag.perms = static_class.o_Authrizes(Request.Cookies.Get("token").Value);
-            return View("~/views/"+v[1]+"/"+v[0]+".cshtml");
+            return static_class.GetView(this, "test");
+        }
+        public ActionResult contact()
+        {
+            return static_class.GetView(this, "t");
         }
         public ActionResult LogOut()
         {

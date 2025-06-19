@@ -8,11 +8,46 @@ using System.Data.SqlClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace AK_HR.Controllers
 {
     public static class static_class
     {
+        public static ActionResult GetView(
+        this Controller controller,
+        string module = "test",
+        HttpRequestBase httpRequest = null,
+        RouteData routeData = null)
+        {
+            // Use provided parameters or fall back to controller's context
+            httpRequest = httpRequest ?? controller.Request;
+            routeData = routeData ?? controller.RouteData;
+
+            // Get token from cookies
+            string token = httpRequest.Cookies.Get("token")?.Value ?? string.Empty;
+
+            // Get controller and action names from route data
+            string controllerName = routeData.Values["controller"]?.ToString();
+            string actionName = routeData.Values["action"]?.ToString();
+    
+            // Get view information
+            string[] viewInfo = GetStatusView(module, token, controllerName, actionName);
+
+            // Set permissions if not login view
+            if (viewInfo[0] != "Log")
+            {
+                controller.ViewBag.perms = static_class.o_Authrizes(token);
+            }
+
+            // Return the appropriate view
+            return new ViewResult
+            {
+                ViewName = $"~/views/{viewInfo[1]}/{viewInfo[0]}.cshtml",
+                ViewData = controller.ViewData,
+                TempData = controller.TempData
+            };
+        }
         /************************** crud ************************/
         static public DataSet getbysql(string sql)
         {

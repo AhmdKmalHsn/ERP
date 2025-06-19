@@ -186,6 +186,7 @@
             this.modulesCategoryToolStripMenuItem.Name = "modulesCategoryToolStripMenuItem";
             this.modulesCategoryToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.modulesCategoryToolStripMenuItem.Text = "modules category";
+            this.modulesCategoryToolStripMenuItem.Click += new System.EventHandler(this.modulesCategoryToolStripMenuItem_Click);
             // 
             // Form1
             // 

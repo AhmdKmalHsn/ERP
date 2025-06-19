@@ -25,8 +25,8 @@ namespace AK_HR.Controllers
         }
         public ActionResult Form(string dataObject)
         {
-            string sqlArray; 
-            JObject obj = JObject.Parse(dataObject==null?"{}":dataObject);
+            string sqlArray=""; 
+            /*JObject obj = JObject.Parse(dataObject==null?"{}":dataObject);
             string sql1 = "";
             string sql2 = "";
             foreach (JProperty property in obj.Properties())
@@ -53,7 +53,7 @@ namespace AK_HR.Controllers
                                                     sql2 += $"'{value}',";
                                                 }
                                             }
-                    }*/
+                    }/**
 
                 }
             }
@@ -61,7 +61,7 @@ namespace AK_HR.Controllers
             sql2 = sql2.Length > 0 ? sql2.Substring(0, sql2.Length - 1) : sql2; 
             
             string sql = $"insert into data({sql1})values({sql2})";
-
+*/
             return Content(sqlArray, "application/json");
         }
         //ai conversion
