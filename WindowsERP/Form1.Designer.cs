@@ -39,9 +39,9 @@
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sideBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modulesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.modulesCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sideBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,14 +147,14 @@
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.usersToolStripMenuItem.Text = "users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // rolesToolStripMenuItem
             // 
             this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
-            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.rolesToolStripMenuItem.Text = "roles";
             this.rolesToolStripMenuItem.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
             // 
@@ -164,15 +164,8 @@
             this.modulesToolStripMenuItem1,
             this.modulesCategoryToolStripMenuItem});
             this.modulesToolStripMenuItem.Name = "modulesToolStripMenuItem";
-            this.modulesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modulesToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.modulesToolStripMenuItem.Text = "modules";
-            // 
-            // sideBarToolStripMenuItem
-            // 
-            this.sideBarToolStripMenuItem.Name = "sideBarToolStripMenuItem";
-            this.sideBarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.sideBarToolStripMenuItem.Text = "side bar";
-            this.sideBarToolStripMenuItem.Click += new System.EventHandler(this.sideBarToolStripMenuItem_Click);
             // 
             // modulesToolStripMenuItem1
             // 
@@ -187,6 +180,13 @@
             this.modulesCategoryToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.modulesCategoryToolStripMenuItem.Text = "modules category";
             this.modulesCategoryToolStripMenuItem.Click += new System.EventHandler(this.modulesCategoryToolStripMenuItem_Click);
+            // 
+            // sideBarToolStripMenuItem
+            // 
+            this.sideBarToolStripMenuItem.Name = "sideBarToolStripMenuItem";
+            this.sideBarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.sideBarToolStripMenuItem.Text = "side bar";
+            this.sideBarToolStripMenuItem.Click += new System.EventHandler(this.sideBarToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -203,6 +203,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

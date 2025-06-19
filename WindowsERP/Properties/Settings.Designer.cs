@@ -33,5 +33,16 @@ namespace WindowsERP.Properties {
                 return ((string)(this["_2025ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SAP2;Initial Catalog=2025;Persist Security Info=True;User ID=sa;Passw" +
+            "ord=Sapsbo2010;MultipleActiveResultSets=True;Application Name=EntityFramework")]
+        public string CS {
+            get {
+                return ((string)(this["CS"]));
+            }
+        }
     }
 }
